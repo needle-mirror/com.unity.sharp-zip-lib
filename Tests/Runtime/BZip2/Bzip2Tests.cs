@@ -1,8 +1,8 @@
-using ICSharpCode.SharpZipLib.BZip2;
-using ICSharpCode.SharpZipLib.Tests.TestSupport;
 using NUnit.Framework;
 using System;
 using System.IO;
+using ICSharpCode.SharpZipLib.BZip2;
+using ICSharpCode.SharpZipLib.Tests.TestSupport;
 
 namespace ICSharpCode.SharpZipLib.Tests.BZip2
 {

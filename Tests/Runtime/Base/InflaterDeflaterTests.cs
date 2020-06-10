@@ -1,11 +1,11 @@
-using ICSharpCode.SharpZipLib.Tests.TestSupport;
-using ICSharpCode.SharpZipLib.Zip.Compression;
-using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
 using NUnit.Framework;
 using System;
 using System.IO;
 using System.Security;
 using System.Text;
+using ICSharpCode.SharpZipLib.Tests.TestSupport;
+using ICSharpCode.SharpZipLib.Zip.Compression;
+using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
 
 namespace ICSharpCode.SharpZipLib.Tests.Base
 {

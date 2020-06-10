@@ -1,8 +1,7 @@
 {
     "name": "ICSharpCode.SharpZipLib.Tests",
     "references": [
-        "UnityEngine.TestRunner",
-        "UnityEditor.TestRunner"
+        "GUID:8c1b5e158961445498f8a66188fbb2e3"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -16,5 +15,9 @@
     "defineConstraints": [
         "UNITY_INCLUDE_TESTS"
     ],
-    "versionDefines": []
+    "versionDefines": [],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "noEngineReferences": false
 }

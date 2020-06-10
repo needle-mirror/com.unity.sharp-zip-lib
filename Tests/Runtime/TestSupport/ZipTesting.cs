@@ -1,5 +1,5 @@
-using ICSharpCode.SharpZipLib.Zip;
 using System.IO;
+using ICSharpCode.SharpZipLib.Zip;
 
 namespace ICSharpCode.SharpZipLib.Tests.TestSupport
 {

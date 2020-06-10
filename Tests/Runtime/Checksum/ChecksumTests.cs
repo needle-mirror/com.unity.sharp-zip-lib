@@ -1,7 +1,7 @@
-﻿using ICSharpCode.SharpZipLib.Checksum;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System;
 using System.Diagnostics;
+using ICSharpCode.SharpZipLib.Checksum;
 
 namespace ICSharpCode.SharpZipLib.Tests.Checksum
 {

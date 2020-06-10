@@ -1,9 +1,9 @@
-using ICSharpCode.SharpZipLib.Tar;
-using ICSharpCode.SharpZipLib.GZip;
-using ICSharpCode.SharpZipLib.Tests.TestSupport;
 using NUnit.Framework;
 using System;
 using System.IO;
+using ICSharpCode.SharpZipLib.GZip;
+using ICSharpCode.SharpZipLib.Tar;
+using ICSharpCode.SharpZipLib.Tests.TestSupport;
 
 namespace ICSharpCode.SharpZipLib.Tests.Tar
 {

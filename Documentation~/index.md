@@ -1,12 +1,7 @@
->>>
-**_SharpZipLib Documentation_**
+# com.unity.sharp-zip-lib
 
-Work in progress
+`com.unity.sharp-zip-lib` is a package that wraps [SharpZipLib](https://github.com/icsharpcode/SharpZipLib) to be used inside Unity,
+and provides various compression/extraction utility functions.
 
-## Document revision history
->>>
- 
-|Date|Reason|
-|---|---|
-|Oct 2, 2019|Document created. Matches package version 0.0.1-preview|
->>>
+
+
