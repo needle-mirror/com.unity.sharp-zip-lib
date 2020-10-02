@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.2-preview.1] - 2020-10-02
+
+* chore: remove package author.
+
 ## [1.2.2-preview] - 2020-06-10
 
 * chore: fix package warnings
