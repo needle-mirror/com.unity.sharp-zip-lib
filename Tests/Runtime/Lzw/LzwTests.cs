@@ -1,7 +1,7 @@
-﻿using NUnit.Framework;
-using System.IO;
-using ICSharpCode.SharpZipLib.Lzw;
+﻿using ICSharpCode.SharpZipLib.Lzw;
 using ICSharpCode.SharpZipLib.Tests.TestSupport;
+using NUnit.Framework;
+using System.IO;
 
 namespace ICSharpCode.SharpZipLib.Tests.Lzw
 {

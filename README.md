@@ -13,6 +13,13 @@ A package that wraps [SharpZipLib](https://github.com/icsharpcode/SharpZipLib) t
 ## Steps to update SharpZipLib 
 
 ### Windows
+
+#### Requirements
+1. Visual Studio 2017 (15.9.40) or later
+   * Check ".Net desktop development" 
+
+#### Steps
+   
 1. Download the source from https://github.com/icsharpcode/SharpZipLib/releases
 1. Extract the source into "SharpZipLibSrc" folder
 1. Open Developer Command Prompt for Visual Studio
