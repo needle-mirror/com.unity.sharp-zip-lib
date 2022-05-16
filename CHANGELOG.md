@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.0-preview] - 2022-05-16
+
+### Changed
+
+* feat: use SharpZipLib 1.3.1
+* chore: increase minimum Unity requirement to 2019.4 
+* change: the namespace of all code (including DLL) to Unity.SharpZipLib (breaking change)
+
 ## [1.2.2-preview.2] - 2021-10-19
 
 ### Changed
