@@ -18,6 +18,7 @@ Currently, this packages uses [SharpZipLib v1.3.1](https://github.com/icsharpcod
  
 > The version numbering of this package itself and the version of SharpZipLib used in the package may look similar, 
 but they are not related.
+EOF          
 ## Steps to update SharpZipLib
 
 ### Windows
@@ -36,4 +37,4 @@ but they are not related.
 
 
 
-*Auto-generated on Fri May 13 14:32:32 UTC 2022*
+*Auto-generated on Wed Jul  6 14:13:09 UTC 2022*

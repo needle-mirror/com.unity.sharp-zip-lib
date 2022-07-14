@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.2-preview] - 2022-07-14
+
+* Re-releasing 1.3.1-preview as 1.3.2-preview
+
+## [1.3.1-preview] - 2022-07-13
+
+### Fixed
+* fix: exclude github workflows from the package
+
 ## [1.3.0-preview] - 2022-05-16
 
 ### Changed
