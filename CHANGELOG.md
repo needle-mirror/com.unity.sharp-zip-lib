@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.3.3-preview] - 2022-12-16
+
+* Reverted minimum Unity version from 2019.4 back to 2018.4 to increase utility
+
 ## [1.3.2-preview] - 2022-07-14
 
 * Re-releasing 1.3.1-preview as 1.3.2-preview
