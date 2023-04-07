@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.3.4-preview] - 2023-04-07
+
+### Added
+* internal: analytics
+
 ## [1.3.3-preview] - 2022-12-16
 
 * Reverted minimum Unity version from 2019.4 back to 2018.4 to increase utility
