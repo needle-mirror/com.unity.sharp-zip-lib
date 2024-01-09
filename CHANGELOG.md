@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.5-preview] - 2024-01-09
+
+### Added
+* doc: add "How to Use" section
+* doc: add Installation page
+
 ## [1.3.4-preview] - 2023-04-07
 
 ### Added
