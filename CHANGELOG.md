@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.6-preview] - 2024-02-28
+
+### Fixed
+* fix: use SharpZipLib 1.3.3
+
+### Changed
+* doc: update the version of SharpZipLib source, DLL build steps, and installation doc
+
 ## [1.3.5-preview] - 2024-01-09
 
 ### Added

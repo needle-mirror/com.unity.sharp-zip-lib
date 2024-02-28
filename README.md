@@ -14,7 +14,7 @@
 `com.unity.sharp-zip-lib` is a package that wraps [SharpZipLib](https://github.com/icsharpcode/SharpZipLib) to be used inside Unity,
 and provides various compression/uncompression utility functions.
 
-Currently, this package uses [SharpZipLib v1.3.1](https://github.com/icsharpcode/SharpZipLib/releases/tag/v1.3.1).  
+Currently, this package uses [SharpZipLib v1.3.3](https://github.com/icsharpcode/SharpZipLib/releases/tag/v1.3.3).  
 Please refer to the [installation](Documentation~/Installation.md) page to install this package.
  
 > The version numbering of this package itself and the version of SharpZipLib used in the package may look similar, 
@@ -71,18 +71,26 @@ but they are not related.
 
 ### Windows
 
-#### Requirements
-1. Visual Studio 2019 (16.11.13) or later
-   * Check ".Net desktop development"
+#### Environment Prerequisites
+1. Visual Studio 2022 (17.19.1) or later
+   * Check ".Net desktop development" during the installation of Visual Studio
+2. Make sure that .Net SDK 8.0 is installed as follows:
+   * Open "Developer Command Prompt for VS 2022"
+   * Type: `dotnet --list-sdks`
 
 #### Steps
 
 1. Download the source from https://github.com/icsharpcode/SharpZipLib/releases
-1. Extract the source into "SharpZipLibSrc" folder
-1. Open Developer Command Prompt for Visual Studio
-1. Execute `update_sharp-zip-lib.cmd`
-1. Open SharpZipLib~ test project, ensure everything compiles and the tests are successful
+1. Extract the source into a folder, e.g:  `Src/SharpZipLib-1.3.3`
+1. Open "Developer Command Prompt for VS 2022"
+1. Execute `update_sharp-zip-lib.cmd [src_folder]`
+   * E.g: `update_sharp-zip-lib.cmd Src/SharpZipLib-1.3.3`
+   * Executing `update_sharp-zip-lib.cmd` without arguments will print the list of acceptable arguments
+1. Open SharpZipLib~ test project, ensure everything compiles and the tests are successful.
+   * We may need to fix/remove some tests that were copied from the source.     
+     For example: [async tests](https://docs.unity3d.com/Packages/com.unity.test-framework@1.4/manual/reference-async-tests.html) 
+     which are not supported in Unity 2018 and earlier.    
 
 
 
-*Auto-generated on Tue Jan  9 09:37:14 UTC 2024*
+*Auto-generated on Wed Feb 28 05:29:40 UTC 2024*

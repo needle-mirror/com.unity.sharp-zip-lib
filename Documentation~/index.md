@@ -3,7 +3,7 @@
 `com.unity.sharp-zip-lib` is a package that wraps [SharpZipLib](https://github.com/icsharpcode/SharpZipLib) to be used inside Unity,
 and provides various compression/uncompression utility functions.
 
-Currently, this package uses [SharpZipLib v1.3.1](https://github.com/icsharpcode/SharpZipLib/releases/tag/v1.3.1).  
+Currently, this package uses [SharpZipLib v1.3.3](https://github.com/icsharpcode/SharpZipLib/releases/tag/v1.3.3).  
 Please refer to the [installation](Installation.md) page to install this package.
  
 > The version numbering of this package itself and the version of SharpZipLib used in the package may look similar, 
