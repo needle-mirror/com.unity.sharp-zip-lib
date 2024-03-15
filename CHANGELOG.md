@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.7-pre.1] - 2024-03-15
+
+### Added
+* test: add runtime utility test
+
+### Fixed
+* fix-test: use Unity's temporary path to create temp files
+
+### Changed
+* test: rename test assembly to Unity.SharpZipLib.* 
+* test: move test code copied from source to Tests/Runtime/Src
+
 ## [1.3.6-preview] - 2024-02-28
 
 ### Fixed

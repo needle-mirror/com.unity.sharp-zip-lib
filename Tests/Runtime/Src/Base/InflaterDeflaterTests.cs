@@ -7,6 +7,8 @@ using System.IO;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
+using Application = UnityEngine.Application;
+
 namespace Unity.SharpZipLib.Tests.Base
 {
 	/// <summary>
@@ -228,7 +230,7 @@ namespace Unity.SharpZipLib.Tests.Base
 			string tempFile = null;
 			try
 			{
-				tempFile = Path.GetTempPath();
+				tempFile = Application.temporaryCachePath;
 			}
 			catch (SecurityException)
 			{
@@ -291,7 +293,7 @@ namespace Unity.SharpZipLib.Tests.Base
 			string tempFile = null;
 			try
 			{
-				tempFile = Path.GetTempPath();
+				tempFile = Application.temporaryCachePath;
 			}
 			catch (SecurityException)
 			{
