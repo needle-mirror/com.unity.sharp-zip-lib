@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.3.7] - 2024-03-21
+
+### Changed
+* Re-releasing 1.3.7-pre.1 (prerelease) as 1.3.7 (released)
+
 ## [1.3.7-pre.1] - 2024-03-15
 
 ### Added
