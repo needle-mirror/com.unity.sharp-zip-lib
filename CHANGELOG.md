@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.8] - 2024-04-26
+
+### Added
+* doc: add installation steps for Unity 6
+
+### Fixed
+* fix: add Apple Privacy Manifest for File timestamp APIs usage
+
 ## [1.3.7] - 2024-03-21
 
 ### Changed

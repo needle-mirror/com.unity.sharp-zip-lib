@@ -1,6 +1,17 @@
 # Installation
 
-Follow the following steps to install `com.unity.sharp-zip-lib` package:
+Based on the used Unity version, please fellow the following steps to install `com.unity.sharp-zip-lib` package.
+
+
+## Unity 6
+
+1. Open [Package Manager Window](https://docs.unity3d.com/Manual/upm-ui.html)
+1. Select **Unity Registry** on the left side bar
+1. Search for `SharpZipLib` and click **Install**
+
+![](images/PackageManager_Unity6.png)
+
+## Earlier Unity Versions (Unity 2018.x and up)
 
 1. Make sure git is installed in the system.
 1. Open [Package Manager Window](https://docs.unity3d.com/Manual/upm-ui.html)
