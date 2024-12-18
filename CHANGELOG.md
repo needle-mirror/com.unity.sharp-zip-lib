@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.3.9] - 2024-12-18
+
+### Changed
+* package: remove contributors from package.json
+* package: set the minimum Unity version to 2021.3.45
+* api: change the accessor of test classes to internal
+* doc: improve the API documentation of ZipUtility
+* doc: update example APIs in the manual documentation
+* refactor: rename editor test assembly to Unity.SharpZipLib.Editor.Tests
+
+
 ## [1.3.8] - 2024-04-26
 
 ### Added
@@ -22,7 +33,7 @@
 * fix-test: use Unity's temporary path to create temp files
 
 ### Changed
-* test: rename test assembly to Unity.SharpZipLib.* 
+* test: rename test assembly to Unity.SharpZipLib.*
 * test: move test code copied from source to Tests/Runtime/Src
 
 ## [1.3.6-preview] - 2024-02-28
@@ -62,7 +73,7 @@
 ### Changed
 
 * feat: use SharpZipLib 1.3.1
-* chore: increase minimum Unity requirement to 2019.4 
+* chore: increase minimum Unity requirement to 2019.4
 * change: the namespace of all code (including DLL) to Unity.SharpZipLib (breaking change)
 
 ## [1.2.2-preview.2] - 2021-10-19
@@ -93,6 +104,6 @@
 ## [1.2.0-preview] - 2019-10-02
 
 ### Added
-* The first release of *SharpZipLib \<com.unity.sharp-zip-lib\>*, which was built using 
+* The first release of *SharpZipLib \<com.unity.sharp-zip-lib\>*, which was built using
   [SharpZipLib v1.2.0](https://github.com/icsharpcode/SharpZipLib/archive/v1.2.0.zip).
 

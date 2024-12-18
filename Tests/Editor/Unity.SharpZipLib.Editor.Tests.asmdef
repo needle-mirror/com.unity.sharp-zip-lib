@@ -1,5 +1,6 @@
 {
-    "name": "Unity.SharpZipLib.EditorTests",
+    "name": "Unity.SharpZipLib.Editor.Tests",
+    "rootNamespace": "",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",

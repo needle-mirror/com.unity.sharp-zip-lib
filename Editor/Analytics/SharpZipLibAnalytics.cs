@@ -1,4 +1,4 @@
-﻿using UnityEditor;
+using UnityEditor;
 
 namespace Unity.SharpZipLib.Editor {
 internal static class SharpZipLibAnalytics {
@@ -9,8 +9,8 @@ internal static class SharpZipLibAnalytics {
         internal LoadEvent() : base(new AnalyticsEventData()) {
         }
     }
-    
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------    
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     [InitializeOnLoadMethod]
     private static void OnLoad() {

@@ -19,7 +19,7 @@ internal static class AnalyticsSender {
         public string packageName;
         public string packageVersion;
     }
-    
+
     internal static void SendEventInEditor(AnalyticsEvent analyticsEvent) {
         if (!EditorAnalytics.enabled) {
             return;
@@ -45,7 +45,7 @@ internal static class AnalyticsSender {
         DateTime now = DateTime.Now;
         m_lastSentDateTime[analyticsEvent.eventName] = now;
     }
-    
+
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
     private static bool IsEventRegistered(AnalyticsEvent analyticsEvent) {
         return m_registeredEvents.ContainsKey(analyticsEvent.eventName);
@@ -75,7 +75,7 @@ internal static class AnalyticsSender {
         var eventDetails = new EventDetail {
             assemblyInfo = assembly.FullName,
         };
-        
+
         var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
         if (packageInfo != null) {
             eventDetails.packageName = packageInfo.name;
@@ -86,8 +86,8 @@ internal static class AnalyticsSender {
         return true;
     }
 
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------    
-    
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
     private const string VENDOR_KEY = "unity.sharp-zip-lib";
 
     private static readonly Dictionary<string, EventDetail> m_registeredEvents = new Dictionary<string, EventDetail>();
@@ -99,6 +99,6 @@ internal static class AnalyticsSender {
 
 
 #endif //UNITY_EDITOR
-    
+
 }
 } //end namespace

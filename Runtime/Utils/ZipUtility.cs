@@ -1,18 +1,58 @@
-﻿using Unity.SharpZipLib.Core;
+using Unity.SharpZipLib.Core;
 using Unity.SharpZipLib.Zip;
 using System;
 using System.IO;
 
 namespace Unity.SharpZipLib.Utils {
 
+/// <summary>
+/// Provides utility methods for compressing and decompressing zip files.
+/// </summary>
+/// <remarks>
+/// This class provides facilities to compress entire folders into a zip file and to uncompress a zip file into folders.
+/// </remarks>
+/// <example>
+/// <para> The following example adds a menu item named "CompressAndUncompress" to Debug in the menu bar that compresses the Assets folder to UnityAssets.zip
+/// and extracts the contents back.
+/// </para>
+/// <code>
+/// using System.IO;
+/// using Unity.SharpZipLib.Utils;
+/// using UnityEditor;
+/// using UnityEngine;
+///
+/// public static class DebugMenu {
+///     [MenuItem("Debug/CompressAndUncompress")]
+///     static void CompressAndUncompress() {
+///
+///         //Compress
+///         string folderToCompress = "Assets";
+///         string zipPath = Path.Combine(Application.temporaryCachePath, "UnityAssets.zip");
+///         ZipUtility.CompressFolderToZip(zipPath,null, folderToCompress);
+///         Debug.Log($"{folderToCompress} folder compressed to: " + zipPath);
+///
+///         //Uncompress
+///         string extractPath = Path.Combine(Application.temporaryCachePath, "UnityAssetsExtracted");
+///         ZipUtility.UncompressFromZip(zipPath, null, extractPath);
+///         Debug.Log($"Uncompressed to: " + extractPath);
+///     }
+/// }
+/// </code>
+/// </example>
 public static class ZipUtility {
 
     /// <summary>
-    /// Uncompress the contents of a zip file into the specified folder
+    /// Uncompress the contents of a zip file into the specified folder.
     /// </summary>
-    /// <param name="archivePath">The path to the zip file</param>
-    /// <param name="password">The password required to open the zip file. Set to null if not required.</param>
-    /// <param name="outFolder">The output folder</param>
+    /// <param name="archivePath">The path to the zip file to be extracted</param>
+    /// <param name="password">The password required to open the zip file. Set to <c>null</c> if the zip file is not encrypted</param>
+    /// <param name="outFolder">The output folder where the contents will be extracted</param>
+    /// <remarks>
+    /// If the output folder already exists, its contents will be deleted before the extraction.
+    /// </remarks>
+    /// <example>
+    /// <code source="../../Tests/Runtime/ZipUtilityTests.cs" region="APIDOC-UncompressFromZip" title="Uncompress From Zip"/>
+    /// </example>
     public static void UncompressFromZip(string archivePath, string password, string outFolder) {
         if (Directory.Exists(outFolder))  {
             Directory.Delete(outFolder,true);
@@ -20,9 +60,9 @@ public static class ZipUtility {
 
         Directory.CreateDirectory(outFolder);
 
-        using(Stream fs = File.OpenRead(archivePath)) 
+        using(Stream fs = File.OpenRead(archivePath))
         using(ZipFile zf = new ZipFile(fs)){
-        
+
             if (!String.IsNullOrEmpty(password)) {
                 // AES encrypted entries are handled automatically
                 zf.Password = password;
@@ -64,23 +104,30 @@ public static class ZipUtility {
 //---------------------------------------------------------------------------------------------------------------------
 
     /// <summary>
-    /// Compresses the files in the nominated folder, and creates a zip file on disk.
+    /// Creates a zip file on disk containing the contents of the nominated folder.
     /// </summary>
-    /// <param name="outPathname">The path of the created zip file</param>
-    /// <param name="password">The password required to open the zip file. Set to null if not required.</param>
+    /// <param name="outPathname">The path where the created zip file will be saved</param>
+    /// <param name="password">The password required to open the zip file. Set to <c>null</c> if not required</param>
     /// <param name="folderName">The folder to be compressed</param>
+    /// <remarks>
+    /// This method recursively compresses all files within the specified folder.
+    /// You can specify a password to encrypt the target zip file.
+    /// </remarks>
+    /// <example>
+    /// <code source="../../Tests/Runtime/ZipUtilityTests.cs" region="APIDOC-CompressFolderToZip" title="Compress Folder To Zip"/>
+    /// </example>
     public static void CompressFolderToZip(string outPathname, string password, string folderName) {
 
         using(FileStream fsOut = File.Create(outPathname))
         using(var zipStream = new ZipOutputStream(fsOut)) {
 
             //0-9, 9 being the highest level of compression
-            zipStream.SetLevel(3); 
+            zipStream.SetLevel(3);
 
             // optional. Null is the same as not setting. Required if using AES.
-            zipStream.Password = password;	
+            zipStream.Password = password;
 
-            // This setting will strip the leading part of the folder path in the entries, 
+            // This setting will strip the leading part of the folder path in the entries,
             // to make the entries relative to the starting folder.
             // To include the full path for each entry up to the drive root, assign to 0.
             int folderOffset = folderName.Length + (folderName.EndsWith("\\") ? 0 : 1);
@@ -106,22 +153,22 @@ public static class ZipUtility {
             var entryName = filename.Substring(folderOffset);
 
             // Remove drive from name and fixe slash direction
-            entryName = ZipEntry.CleanName(entryName); 
+            entryName = ZipEntry.CleanName(entryName);
 
             var newEntry = new ZipEntry(entryName);
 
             // Note the zip format stores 2 second granularity
-            newEntry.DateTime = fi.LastWriteTime; 
+            newEntry.DateTime = fi.LastWriteTime;
 
-            // Specifying the AESKeySize triggers AES encryption. 
+            // Specifying the AESKeySize triggers AES encryption.
             // Allowable values are 0 (off), 128 or 256.
             // A password on the ZipOutputStream is required if using AES.
             //   newEntry.AESKeySize = 256;
 
             // To permit the zip to be unpacked by built-in extractor in WinXP and Server2003,
-            // WinZip 8, Java, and other older code, you need to do one of the following: 
+            // WinZip 8, Java, and other older code, you need to do one of the following:
             // Specify UseZip64.Off, or set the Size.
-            // If the file may be bigger than 4GB, or you do not need WinXP built-in compatibility, 
+            // If the file may be bigger than 4GB, or you do not need WinXP built-in compatibility,
             // you do not need either, but the zip will be in Zip64 format which
             // not all utilities can understand.
             //   zipStream.UseZip64 = UseZip64.Off;

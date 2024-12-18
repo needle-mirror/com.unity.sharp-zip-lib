@@ -6,7 +6,7 @@ internal class AnalyticsEventData {
 }
 
 internal abstract class AnalyticsEvent {
-    
+
     internal abstract string eventName       { get; }
     internal virtual  int    version         => 1;
     internal virtual  int    maxEventPerHour => 10000;
