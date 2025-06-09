@@ -1,6 +1,6 @@
 # Installation
 
-Based on the used Unity version, please fellow the following steps to install `com.unity.sharp-zip-lib` package.
+Based on the used Unity version, please follow the following steps to install `com.unity.sharp-zip-lib` package.
 
 
 ## Unity 6
@@ -11,12 +11,11 @@ Based on the used Unity version, please fellow the following steps to install `c
 
 ![](images/PackageManager_Unity6.png)
 
-## Earlier Unity Versions (Unity 2018.x and up)
+## Earlier Unity Versions (Unity 2022.x)
 
 1. Make sure git is installed in the system.
 1. Open [Package Manager Window](https://docs.unity3d.com/Manual/upm-ui.html)
 1. Click the **+** button, and choose **Add package by name**
-   > In Unity 2020.x or earlier, choose **Add package from git URL**
 
    ![](images/PackageManager.png)
 

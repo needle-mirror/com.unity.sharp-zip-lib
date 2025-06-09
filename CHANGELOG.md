@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0] - 2025-06-09
+
+### Changed
+* feat: use SharpZipLib 1.4.2
+* package: set the minimum Unity version to 2022.3
+* doc: update Installation documentation
+
 ## [1.3.9] - 2024-12-18
 
 ### Changed

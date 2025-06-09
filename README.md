@@ -1,17 +1,12 @@
 
 # Latest official docs
 - [English](https://docs.unity3d.com/Packages/com.unity.sharp-zip-lib@latest)
-
-[![](https://badge-proxy.cds.internal.unity3d.com/78081939-b2a0-4fc9-bebf-901b49fd954c)](https://badges.cds.internal.unity3d.com/packages/com.unity.sharp-zip-lib/build-info?branch=master&testWorkflow=package-isolation)
-[![](https://badge-proxy.cds.internal.unity3d.com/faf61743-4d21-479c-b01c-ab63561e27d9)](https://badges.cds.internal.unity3d.com/packages/com.unity.sharp-zip-lib/dependencies-info?branch=master&testWorkflow=updated-dependencies)
-[![](https://badge-proxy.cds.internal.unity3d.com/e5917bce-0357-4f49-a9c3-c356b9de832c)](https://badges.cds.internal.unity3d.com/packages/com.unity.sharp-zip-lib/dependants-info)
-[![](https://badge-proxy.cds.internal.unity3d.com/f2066c51-3423-424d-a58f-24a64683cf57)](https://badges.cds.internal.unity3d.com/packages/com.unity.sharp-zip-lib/warnings-info?branch=master)
 # com.unity.sharp-zip-lib
 
 `com.unity.sharp-zip-lib` is a package that wraps [SharpZipLib](https://github.com/icsharpcode/SharpZipLib) to be used inside Unity,
 and provides various compression/uncompression utility functions.
 
-Currently, this package uses [SharpZipLib v1.3.3](https://github.com/icsharpcode/SharpZipLib/releases/tag/v1.3.3).
+Currently, this package uses [SharpZipLib v1.4.2](https://github.com/icsharpcode/SharpZipLib/releases/tag/v1.4.2).
 Please refer to the [installation](Documentation~/Installation.md) page to install this package.
 
 > The version numbering of this package itself and the version of SharpZipLib used in the package may look similar,
@@ -60,33 +55,33 @@ but they are not related.
 
 ## Supported Unity Versions
 
-* Unity `2021.3.45` or higher.
+* Unity `2022.3.62` or higher.
 ## Steps to update SharpZipLib
 
 ### Windows
 
 #### Environment Prerequisites
-1. Visual Studio 2022 (17.19.1) or later
+1. Visual Studio 2022 (17.14.0) or later
    * Check ".Net desktop development" during the installation of Visual Studio
-2. Make sure that .Net SDK 8.0 is installed as follows:
+2. Make sure that .Net SDK 9.0 is installed as follows:
    * Open "Developer Command Prompt for VS 2022"
    * Type: `dotnet --list-sdks`
 
 #### Steps
 
 1. Download the source from https://github.com/icsharpcode/SharpZipLib/releases
-1. Extract the source into a folder, e.g:  `Src/SharpZipLib-1.3.3`
+1. Extract the source into a folder, e.g:  `Src\SharpZipLib-1.4.2`
 1. Open "Developer Command Prompt for VS 2022"
    1. Execute `update_sharp-zip-lib.cmd [src_folder]`
-      * E.g: `update_sharp-zip-lib.cmd Src/SharpZipLib-1.3.3`
+      * E.g: `update_sharp-zip-lib.cmd Src\SharpZipLib-1.4.2`
       * Executing `update_sharp-zip-lib.cmd` without arguments will print the list of acceptable arguments
 1. Open SharpZipLib~ test project, ensure everything compiles and the tests are successful.
    * We may need to fix/remove some tests that were copied from the source.
      For example: [async tests](https://docs.unity3d.com/Packages/com.unity.test-framework@1.4/manual/reference-async-tests.html)
      which are not supported in Unity 2018 and earlier.
 1. Open a shell / Git Bash / terminal
-   1. Execute `sh Scripts~/clean_up_cs.sh` to clean up cs source code.
+   1. Execute `sh Scripts~/clean_up_text.sh` to clean up cs source code.
 
 
 
-*Auto-generated on Thu Dec 19 08:01:25 UTC 2024*
+*Auto-generated on Thu Jun  5 23:35:42 UTC 2025*
