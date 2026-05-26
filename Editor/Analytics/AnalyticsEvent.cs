@@ -1,11 +1,22 @@
 using System;
+#if UNITY_6000_3_OR_NEWER
+using UnityEngine.Analytics;
+#endif
 
 namespace Unity.SharpZipLib.Editor {
-internal class AnalyticsEventData {
+internal class AnalyticsEventData
+#if UNITY_6000_3_OR_NEWER
+    : IAnalytic.IData
+#endif
+{
     public string actualPackageVersion;
 }
 
-internal abstract class AnalyticsEvent {
+internal abstract class AnalyticsEvent
+#if UNITY_6000_3_OR_NEWER
+    : IAnalytic
+#endif
+{
 
     internal abstract string eventName       { get; }
     internal virtual  int    version         => 1;
@@ -24,6 +35,14 @@ internal abstract class AnalyticsEvent {
     internal AnalyticsEvent(AnalyticsEventData eventData) {
         parameters = eventData;
     }
+
+#if UNITY_6000_3_OR_NEWER
+    public bool TryGatherData(out IAnalytic.IData data, out Exception error) {
+        error = null;
+        data = parameters;
+        return data != null;
+    }
+#endif
 }
 
 } //end namespace

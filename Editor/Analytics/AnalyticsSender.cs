@@ -25,31 +25,43 @@ internal static class AnalyticsSender {
             return;
         }
 
+#if !UNITY_6000_3_OR_NEWER
+        //registration is done automatically in the 6000.3 version
         if (!IsEventRegistered(analyticsEvent)) {
-            var assembly = Assembly.GetCallingAssembly();
+            Assembly assembly = Assembly.GetCallingAssembly();
             if (!RegisterEvent(analyticsEvent, assembly)) {
                 return;
             }
         }
+#endif
 
         if (!ShouldSendEvent(analyticsEvent)) {
             return;
         }
 
+#if UNITY_6000_3_OR_NEWER
+        if (string.IsNullOrEmpty(m_packageVersion)) {
+            Assembly assembly = Assembly.GetCallingAssembly();
+            UnityEditor.PackageManager.PackageInfo packageInfo =
+                UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
+            m_packageVersion = packageInfo != null ? packageInfo.version : string.Empty;
+        }
+
+        analyticsEvent.parameters.actualPackageVersion = m_packageVersion;
+        EditorAnalytics.SendAnalytic(analyticsEvent);
+#else
         analyticsEvent.parameters.actualPackageVersion = m_registeredEvents[analyticsEvent.eventName].packageVersion;
         AnalyticsResult result = EditorAnalytics.SendEventWithLimit(analyticsEvent.eventName, analyticsEvent.parameters, analyticsEvent.version);
         if (result != AnalyticsResult.Ok) {
             return;
         }
+#endif
 
         DateTime now = DateTime.Now;
         m_lastSentDateTime[analyticsEvent.eventName] = now;
     }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-    private static bool IsEventRegistered(AnalyticsEvent analyticsEvent) {
-        return m_registeredEvents.ContainsKey(analyticsEvent.eventName);
-    }
 
     private static bool ShouldSendEvent(AnalyticsEvent analyticsEvent) {
         if (!m_lastSentDateTime.ContainsKey(analyticsEvent.eventName)) {
@@ -60,23 +72,29 @@ internal static class AnalyticsSender {
         return DateTime.Now - lastSentDateTime >= analyticsEvent.minInterval;
     }
 
+#if !UNITY_6000_3_OR_NEWER
+    private static bool IsEventRegistered(AnalyticsEvent analyticsEvent) {
+        return m_registeredEvents.ContainsKey(analyticsEvent.eventName);
+    }
     private static bool RegisterEvent(AnalyticsEvent analyticsEvent, Assembly assembly) {
         if (!EditorAnalytics.enabled) {
             return false;
         }
 
+        // In pre-UNITY_6000_3_OR_NEWER versions, registration must be performed explicitly here.
+        // Automatic registration applies only to UNITY_6000_3_OR_NEWER.
         AnalyticsResult result = EditorAnalytics.RegisterEventWithLimit(analyticsEvent.eventName,
-            analyticsEvent.maxEventPerHour, analyticsEvent.maxItems, VENDOR_KEY, analyticsEvent.version);
+            analyticsEvent.maxEventPerHour, analyticsEvent.maxItems, SharpZipLibEditorConstants.VENDOR_KEY, analyticsEvent.version);
 
         if (result != AnalyticsResult.Ok) {
             return false;
         }
 
-        var eventDetails = new EventDetail {
+        EventDetail eventDetails = new EventDetail {
             assemblyInfo = assembly.FullName,
         };
 
-        var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
+        UnityEditor.PackageManager.PackageInfo packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
         if (packageInfo != null) {
             eventDetails.packageName = packageInfo.name;
             eventDetails.packageVersion = packageInfo.version;
@@ -86,12 +104,16 @@ internal static class AnalyticsSender {
         return true;
     }
 
+#endif //#if !UNITY_6000_3_OR_NEWER
+
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    private const string VENDOR_KEY = "unity.sharp-zip-lib";
 
     private static readonly Dictionary<string, EventDetail> m_registeredEvents = new Dictionary<string, EventDetail>();
     private static readonly Dictionary<string, DateTime>    m_lastSentDateTime = new Dictionary<string, DateTime>();
+
+    private static string m_packageVersion = null;
+
 
 #else
 

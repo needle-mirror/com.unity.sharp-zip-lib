@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.4.2] - 2026-05-26
+
+### Fixed
+* fix: use new Analytics API for Unity 6000.3 and up
+
 ## [1.4.0] - 2025-06-09
 
 ### Changed
